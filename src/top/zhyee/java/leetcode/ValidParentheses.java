@@ -9,6 +9,7 @@ public class ValidParentheses {
             return false;
         }
         for (int i = 0; i < s.length(); i++) {
+
             char nowChar = s.charAt(i);
 
             if (isLeftCouple(nowChar)) {
