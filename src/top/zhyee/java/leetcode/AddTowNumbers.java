@@ -3,15 +3,6 @@ package top.zhyee.java.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
-
 public class AddTowNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l3 = null;

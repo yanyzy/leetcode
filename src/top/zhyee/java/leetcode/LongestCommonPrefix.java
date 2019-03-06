@@ -10,7 +10,7 @@ public class LongestCommonPrefix {
         if (strs[0].isEmpty() && strs.length == 1) {
             return "";
         }
-        String shortest = strs[0];
+        String shortest = strs[0];//以第一个字符串为准做对比
         for (int i = 0; i < strs.length; i++) {
             shortest = this.getShortest(strs[i], shortest);
         }
@@ -24,7 +24,7 @@ public class LongestCommonPrefix {
             if (shortest.isEmpty()) {
                 return "";
             }
-            shortest = getShortest(s, shortest);
+            shortest = getShortest(s, shortest);//递归调用直到符合标准
         }
         return shortest;
     }
