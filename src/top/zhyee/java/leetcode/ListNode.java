@@ -1,7 +1,5 @@
 package top.zhyee.java.leetcode;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-
 /**
  * @author zhyee
  * 2018/10/11 下午4:37
