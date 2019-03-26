@@ -13,7 +13,6 @@ public class SortList {
         return sort(head);
     }
 
-
     private ListNode sort(ListNode listNode) {
         if (listNode == null || listNode.next == null) {
             return listNode;
