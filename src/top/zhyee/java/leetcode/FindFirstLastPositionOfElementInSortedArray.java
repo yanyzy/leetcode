@@ -27,28 +27,55 @@ import java.util.Arrays;
  */
 public class FindFirstLastPositionOfElementInSortedArray {
 
-    //todo
     public int[] searchRange(int[] nums, int target) {
 
         int first = -1;
         int last = -1;
-
         int lo = 0;
         int hi = nums.length - 1;
-
         while (lo < hi) {
             int mid = lo + (hi - lo) / 2;
             if (nums[mid] == target) {
-                if (nums[mid + 1] > target) {
-                    last = mid;
-                    hi = mid - 1;
-                } else if (nums[mid - 1] < target) {
-                    first = mid;
-                    lo = mid + 1;
-                }
+                //在附近寻找
+                return find(target, mid, nums);
+            } else if (nums[mid] > target) {
+                hi = mid - 1;
+            } else {
+                lo = mid + 1;
             }
         }
 
+        if (lo == hi) {
+            if (nums[lo] == target) {
+                return new int[]{lo, lo};
+            }
+        }
         return new int[]{first, last};
+    }
+
+    private int[] find(int target, int mid, int[] nums) {
+        int first = mid;
+        int last = mid;
+        for (int i = mid + 1; i < nums.length; i++) {
+            if (nums[i] > target) {
+                last = i - 1;
+                break;
+            } else {
+                last = i;
+            }
+        }
+        for (int i = mid - 1; i >= 0; i--) {
+            if (nums[i] < target) {
+                first = i + 1;
+                break;
+            } else {
+                first = i;
+            }
+        }
+        return new int[]{first, last};
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new FindFirstLastPositionOfElementInSortedArray().searchRange(new int[]{1,1,2}, 1)));
     }
 }
