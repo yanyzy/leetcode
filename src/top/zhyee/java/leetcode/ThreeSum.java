@@ -1,8 +1,6 @@
 package top.zhyee.java.leetcode;
 
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author zhyee
@@ -10,6 +8,13 @@ import java.util.stream.Collectors;
  */
 public class ThreeSum {
 
+    /**
+     * 重点是要快，不能遍历太多遍
+     * 可以分解成 two-sum
+     * two-sum 只能使用一次遍历，用 hashmap 保存键值对
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
         Set<String> exist = new HashSet<>();
@@ -17,13 +22,10 @@ public class ThreeSum {
         Integer pevious = null;
 
         for (int i = 0; i < nums.length; i++) {
-
             int j = 0 - nums[i];
             if (pevious != null && pevious == j) {
                 continue;
             }
-
-
             Map<Integer, Integer> integers = new HashMap<>();
             for (int k = i + 1; k < nums.length; k++) {
                 int m = j - nums[k];
@@ -37,12 +39,9 @@ public class ThreeSum {
                         lists.add(Arrays.asList(nums[i], nums[k], m));
                         exist.add(exsitKey);
                     }
-
-
                 }
                 integers.put(nums[k], 0);
             }
-
             pevious = j;
         }
         return lists;
