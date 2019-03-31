@@ -31,7 +31,10 @@ public class DiameterOfBinaryTree {
         if (root == null) {
             return 0;
         }
-        return getLen(root.left, 0) + getLen(root.right, 0);
+        int a = getLen(root.left, 1) + getLen(root.right, 1) ;
+        int b = diameterOfBinaryTree(root.left);
+        int c = diameterOfBinaryTree(root.right);
+        return Math.max(Math.max(a,b),c);
     }
 
     private int getLen(TreeNode node, int n) {
@@ -39,20 +42,18 @@ public class DiameterOfBinaryTree {
         if (node == null) {
             return n;
         }
-        if (node.left == null && node.right == null) {
-            return n + 1;
+
+        if (node.left != null && node.right != null) {
+            return Math.max(getLen(node.left, n + 1), getLen(node.right, n + 1));
         }
-        if (node.left == null) {
-            return getLen(node.right, n + 1);
-        }
-        if (node.right == null) {
+        if (node.left != null) {
             return getLen(node.left, n + 1);
         }
-        int left = getLen(node.left, n + 1);
-        int right = getLen(node.right, n + 1);
+        if (node.right != null) {
+            return getLen(node.right, n + 1);
+        }
 
-        return left > right ? left : right;
-
+        return n ;
     }
 
     public static void main(String[] args) {
