@@ -27,7 +27,7 @@ public class PascalTriangleII {
 
         List<List<Integer>> lists = new ArrayList<>();
 
-        for (int i = 1; i <= rowIndex+1; i++) {
+        for (int i = 1; i <= rowIndex + 1; i++) {
             if (lists.size() == 0) {
                 lists.add(Collections.singletonList(1));
             } else {
