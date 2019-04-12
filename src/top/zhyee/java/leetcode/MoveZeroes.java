@@ -5,7 +5,6 @@ package top.zhyee.java.leetcode;
  * @date 2019/4/10 下午5:17
  */
 
-
 /**
  * 283. 移动零
  * <p>
