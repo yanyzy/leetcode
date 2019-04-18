@@ -1,4 +1,4 @@
-package top.zhyee.java.leetcode.simple;
+package top.zhyee.java.leetcode.medium;
 
 import java.util.Arrays;
 
