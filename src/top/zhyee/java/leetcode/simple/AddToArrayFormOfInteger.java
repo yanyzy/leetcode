@@ -106,7 +106,6 @@ public class AddToArrayFormOfInteger {
 
 
     public static void main(String[] args) {
-
         AddToArrayFormOfInteger a = new AddToArrayFormOfInteger();
         System.out.println(a.addToArrayForm(new int[]{2, 7, 4}, 181));
     }
