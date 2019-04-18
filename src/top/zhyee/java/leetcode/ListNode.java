@@ -5,10 +5,10 @@ package top.zhyee.java.leetcode;
  * 2018/10/11 下午4:37
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 
