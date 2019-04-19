@@ -1,5 +1,7 @@
 package top.zhyee.java.leetcode.simple;
 
+import top.zhyee.java.leetcode.ListNode;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -118,20 +120,5 @@ public class SortList {
     }
 
 
-    static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
 }

@@ -5,6 +5,8 @@ package top.zhyee.java.leetcode.simple;
  * @date 2019/4/16 下午3:13
  */
 
+import top.zhyee.java.leetcode.ListNode;
+
 /**
  * 203. 移除链表元素
  * <p>

@@ -14,18 +14,10 @@ public class AddTowNumbers {
 
         int length = l1list.size() > l2list.size() ? l1list.size() : l2list.size();
 
-        List<Integer> l3list = new ArrayList<>();
-
         int tens = 0;
         for (int i = 0; i < length; i++) {
             int l1num = 0;
             int l2num = 0;
-//            if((l1list.size() - 1 - i)>=0){
-//                l1num = l1list.get(l1list.size() - 1 - i);
-//            }
-//            if((l2list.size() - 1 - i)>=0) {
-//                l2num = l2list.get(l2list.size() - 1 - i);
-//            }
             if(i<l1list.size()){
                 l1num= l1list.get(i);
             }
