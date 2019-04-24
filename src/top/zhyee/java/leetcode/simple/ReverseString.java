@@ -1,7 +1,5 @@
 package top.zhyee.java.leetcode.simple;
 
-import javafx.scene.control.SliderBuilder;
-
 import java.util.Arrays;
 
 /**
