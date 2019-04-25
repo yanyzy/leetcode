@@ -1,5 +1,7 @@
 package top.zhyee.java.leetcode.medium;
 
+import top.zhyee.java.leetcode.ListNode;
+
 /**
  * @author zhyee
  * @date 2019/3/24 下午4:28
@@ -69,22 +71,6 @@ public class MergeTwoSortedLists {
 
     }
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
-    }
 }
 
 
