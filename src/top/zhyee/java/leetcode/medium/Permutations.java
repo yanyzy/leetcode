@@ -3,7 +3,7 @@ package top.zhyee.java.leetcode.medium;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * @author zhyee
  * @date 2019/4/29 下午4:51
  */
@@ -36,29 +36,28 @@ public class Permutations {
         return listList;
     }
 
-    private List<List<Integer>> permute(int[] nums, ArrayList<Integer> list, List<List<Integer>> lists) {
+    private void permute(int[] nums, ArrayList<Integer> list, List<List<Integer>> lists) {
 
         if (nums.length == 1) {
             list.add(nums[0]);
             lists.add(list);
-            return lists;
+            return;
         }
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int num : nums) {
             ArrayList<Integer> newList = (ArrayList<Integer>) list.clone();
-            newList.add(nums[i]);
-            permute(remove(nums, nums[i]), newList, lists);
+            newList.add(num);
+            permute(remove(nums, num), newList, lists);
         }
 
-        return lists;
     }
 
     private int[] remove(int[] nums, int j) {
         int[] ints = new int[nums.length - 1];
         int k = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != j) {
-                ints[k] = nums[i];
+        for (int num : nums) {
+            if (num != j) {
+                ints[k] = num;
                 k++;
             }
         }
