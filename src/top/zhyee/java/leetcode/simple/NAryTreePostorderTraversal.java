@@ -6,40 +6,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/*
+/**
  * @author zhyee
- * @date 2019/5/10 下午2:48
+ * @date 2019/5/10 下午3:10
  */
 
 /**
- * 589. N叉树的前序遍历
- *
- * 给定一个 N 叉树，返回其节点值的前序遍历。
- *
+ * 590. N叉树的后序遍历
+ * <p>
+ * 给定一个 N 叉树，返回其节点值的后序遍历。
+ * <p>
  * 例如，给定一个 3叉树 :
-
- * 返回其前序遍历: [1,3,5,6,2,4]。
- *
- *
+ * <p>
+ * 返回其后序遍历: [5,6,3,2,4,1].
  */
-public class NAaryTreePreorderTraversal {
-    public List<Integer> preorder(Node root) {
+public class NAryTreePostorderTraversal {
+    public List<Integer> postorder(Node root) {
         if (root == null) {
             return Collections.emptyList();
         }
         List<Integer> integers = new ArrayList<>();
+        postorder(root.children, integers);
         integers.add(root.val);
-        preorder(root.children, integers);
         return integers;
     }
 
-    private void preorder(List<Node> nodes, List<Integer> list) {
+    private void postorder(List<Node> nodes, List<Integer> list) {
         for (Node n :
                 nodes) {
-            list.add(n.val);
             if (n.children.size() != 0) {
-                preorder(n.children, list);
+                postorder(n.children, list);
             }
+            list.add(n.val);
         }
     }
 }
