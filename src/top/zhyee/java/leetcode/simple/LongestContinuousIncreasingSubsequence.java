@@ -26,7 +26,6 @@ package top.zhyee.java.leetcode.simple;
 public class LongestContinuousIncreasingSubsequence {
     public int findLengthOfLCIS(int[] nums) {
 
-
         if (nums.length == 0) {
             return 0;
         }
