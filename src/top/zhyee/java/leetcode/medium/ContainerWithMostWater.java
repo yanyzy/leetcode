@@ -27,6 +27,7 @@ public class ContainerWithMostWater {
      * 使用双指针，一个指向头，一个指向尾
      * 因为无论是头指针移动，还是尾指针移动，都将使容器的底部变小（宽度变小）
      * 因此，移动指针时，我们移动高度较低的那一边，确保留下了较高的另一边
+     *
      * @param height
      * @return
      */
