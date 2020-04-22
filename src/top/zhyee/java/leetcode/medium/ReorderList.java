@@ -2,29 +2,40 @@ package top.zhyee.java.leetcode.medium;
 
 import top.zhyee.java.leetcode.ListNode;
 
+import java.util.Stack;
+
 /**
  * 143. 重排链表
- *
+ * <p>
  * 给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
  * 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
- *
+ * <p>
  * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
- *
+ * <p>
  * 示例 1:
- *
+ * <p>
  * 给定链表 1->2->3->4, 重新排列为 1->4->2->3.
  * 示例 2:
- *
+ * <p>
  * 给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/reorder-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class ReorderList {
     
-    //todo
+    /**
+     * 1.使用快慢指针找出中点，分割链表
+     * 2.将第二段链表反转
+     * 3.将反转后的第二段链表插入第一段链表中
+     *
+     * @param head
+     */
     public void reorderList(ListNode head) {
+        if (head == null || head.next == null) {
+            return;
+        }
         ListNode slow = head;
         ListNode fast = head;
         
@@ -34,26 +45,36 @@ public class ReorderList {
         }
         
         ListNode reverser = reverser(slow.next);
+        slow.next = null;
         
-        ListNode node = head;
-        while (node != null && reverser != null) {
-            ListNode temp = reverser;
-            temp.next = node.next;
-            node.next = temp;
-            node = node.next.next;
+        while (head != null && reverser != null) {
+            ListNode temp = head.next;
+            head.next = reverser;
             reverser = reverser.next;
+            head.next.next = temp;
+            head = head.next.next;
         }
     }
     
     private ListNode reverser(ListNode head) {
-        ListNode p1 = head;
+        if (head == null) {
+            return head;
+        }
+        Stack<ListNode> nodes = new Stack<>();
         while (head != null) {
-            ListNode temp = head.next;
-            p1.next = temp;
-            temp.next = head;
+            nodes.push(head);
             head = head.next;
         }
-        return p1;
+        
+        ListNode newHead = nodes.pop();
+        ListNode node = newHead;
+        while (!nodes.empty()) {
+            ListNode temp = nodes.pop();
+            temp.next = null;
+            node.next = temp;
+            node = node.next;
+        }
+        return newHead;
     }
     
     public static void main(String[] args) {
