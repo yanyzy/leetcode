@@ -2,7 +2,6 @@ package top.zhyee.java.leetcode.medium;
 
 import top.zhyee.java.leetcode.ListNode;
 
-
 /**
  * 1171. 从链表中删去总和值为零的连续节点
  * <p>
@@ -37,6 +36,13 @@ import top.zhyee.java.leetcode.ListNode;
  */
 public class RemoveZeroSumConsecutiveNodesfromLinkedList {
     
+    /**
+     * 从头结点开始相加，加到为0时，表示这段链表需要被删除
+     * 递归地将每个节点作为头结点
+     *
+     * @param head
+     * @return
+     */
     public ListNode removeZeroSumSublists(ListNode head) {
         ListNode node = head;
         int count = 0;
@@ -50,8 +56,7 @@ public class RemoveZeroSumConsecutiveNodesfromLinkedList {
         if (head == null) {
             return head;
         }
-        ListNode temp = removeZeroSumSublists(head.next);
-        head.next = temp;
+        head.next = removeZeroSumSublists(head.next);
         return head;
     }
     
