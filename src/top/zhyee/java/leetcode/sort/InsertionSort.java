@@ -11,7 +11,7 @@ public class InsertionSort {
         for (int i = 0; i < arr.length; i++) {
             int index = i - 1;
             int current = arr[i];
-            while (index >= 0 && arr[index + 1] < arr[index]) {
+            while (index >= 0 && current < arr[index]) {
                 arr[index + 1] = arr[index];
                 index--;
             }
