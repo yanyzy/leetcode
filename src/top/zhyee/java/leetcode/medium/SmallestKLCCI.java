@@ -20,17 +20,9 @@ package top.zhyee.java.leetcode.medium;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class SmallestKLCCI {
-    //todo 冒泡排序超出时间限制
+    //冒泡排序超出时间限制，用希尔排序即可
     public int[] smallestK(int[] arr, int k) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j + 1];
-                    arr[j + 1] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
+        sort(arr);
         int[] newArr = new int[k];
         k--;
         while (k >= 0) {
@@ -38,5 +30,22 @@ public class SmallestKLCCI {
             k--;
         }
         return newArr;
+    }
+    
+    public void sort(int[] arr) {
+        for (int i = arr.length / 2; i > 0; i = i / 2) {
+            //分数组做插入排序
+            for (int j = 0; j < i; j++) {
+                for (int k = j + i; k < arr.length; k = k + i) {
+                    int preIndex = k - i;
+                    int current = arr[k];
+                    while (preIndex >= 0 && arr[preIndex] > current) {
+                        arr[preIndex + i] = arr[preIndex];
+                        preIndex = preIndex - i;
+                    }
+                    arr[preIndex + i] = current;
+                }
+            }
+        }
     }
 }
