@@ -11,7 +11,11 @@ public class SortTest {
 //        System.out.println(Arrays.toString(arr_1));
 //        System.out.println(Arrays.toString(arr_2));
     
-        System.out.println(Arrays.toString(new MergeSort().sort(arr_1)));
-        System.out.println(Arrays.toString(new MergeSort().sort(arr_2)));
+//        System.out.println(Arrays.toString(new MergeSort().sort(arr_1)));
+//        System.out.println(Arrays.toString(new MergeSort().sort(arr_2)));
+        
+        new Quicksort().sort(arr_1);
+        new Quicksort().sort(arr_2);
+        System.out.println(Arrays.toString(arr_1));
     }
 }
