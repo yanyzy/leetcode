@@ -1,5 +1,13 @@
 package top.zhyee.java.leetcode.sort;
 
+/**
+ * 快排
+ * <p>
+ * 先选择一个基准值，使用两个指针遍历数组
+ * 从左开始找到第一个比基准值大的数，从右开始找到第一个比基准值小的数，然后交换
+ * 遍历结束，将基准值放到中间
+ * 再将其左右两个数组进行快速排序
+ */
 public class Quicksort {
     public void sort(int[] arr) {
         quickSort(arr, 0, 1, arr.length - 1);
