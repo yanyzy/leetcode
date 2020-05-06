@@ -48,34 +48,22 @@ public class CombinationSum {
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> lists = new ArrayList<>();
-        for (int i = 0; i < candidates.length; i++) {
-            int newTarget = target - candidates[i];
-            List<Integer> list = new ArrayList<>();
-            list.add(candidates[i]);
-            if (newTarget == 0) {
-                lists.add(list);
-            }
-            int[] ints = new int[candidates.length - i];
-            System.arraycopy(candidates, i, ints, 0, candidates.length - i);
-            combinationSum(ints, newTarget, lists, list);
-        }
+        combinationSum(candidates, target, 0, lists, new ArrayList<>());
         return lists;
     }
     
-    private void combinationSum(int[] candidates, int target, List<List<Integer>> lists, List<Integer> integers) {
+    private void combinationSum(int[] candidates, int target, int begin, List<List<Integer>> lists, List<Integer> integers) {
         if (target <= 0) {
             return;
         }
-        for (int i = 0; i < candidates.length; i++) {
+        for (int i = begin; i < candidates.length; i++) {
             int newTarget = target - candidates[i];
             List<Integer> list = new ArrayList<>(integers);
             list.add(candidates[i]);
             if (newTarget == 0) {
                 lists.add(list);
             }
-            int[] ints = new int[candidates.length - i];
-            System.arraycopy(candidates, i, ints, 0, candidates.length - i);
-            combinationSum(ints, newTarget, lists, list);
+            combinationSum(candidates, newTarget, i, lists, list);
         }
     }
     
