@@ -3,10 +3,10 @@ package top.zhyee.java.leetcode.dp;
 public class FibonacciNumber {
     
     public int fib(int N) {
-        if(N<2){
+        if (N < 2) {
             return N;
         }
-        int[] dp = new int[N+1];
+        int[] dp = new int[N + 1];
         dp[0] = 0;
         dp[1] = 1;
         
