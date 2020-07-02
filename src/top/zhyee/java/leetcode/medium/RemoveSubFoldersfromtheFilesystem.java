@@ -26,7 +26,6 @@ public class RemoveSubFoldersfromtheFilesystem {
                 strings.add(value);
                 map.put(value, 0);
             }
-            
         }
         return strings;
     }

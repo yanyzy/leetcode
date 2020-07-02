@@ -13,4 +13,17 @@ public class TreeNode {
     public TreeNode(int x) {
         val = x;
     }
+    
+    @Override
+    public String toString() {
+        return toString(this);
+    }
+    
+    protected String toString(TreeNode node) {
+        if (node == null) {
+            return "";
+        }
+        return node.val + "(" + toString(node.left) + ", " +
+                toString(node.right) + ")";
+    }
 }
