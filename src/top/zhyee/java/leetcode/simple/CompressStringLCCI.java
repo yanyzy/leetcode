@@ -1,8 +1,5 @@
 package top.zhyee.java.leetcode.simple;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CompressStringLCCI {
     
     public String compressString(String S) {
