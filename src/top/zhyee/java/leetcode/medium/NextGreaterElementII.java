@@ -5,6 +5,15 @@ import java.util.Stack;
 
 public class NextGreaterElementII {
     
+    /**
+     * 遍历两次
+     * 用栈先将第一次没找到更大的元素保存下来其索引
+     * 第二次遍历只出栈不入栈
+     * 然后将栈中剩余的索引位置 -1 ，因为遍历两遍后仍未找到更大值，则没有更大值了
+     *
+     * @param nums
+     * @return
+     */
     public int[] nextGreaterElements(int[] nums) {
         Stack<Integer> stack = new Stack<>();
         int[] ints = new int[nums.length];
@@ -16,7 +25,7 @@ public class NextGreaterElementII {
             }
             stack.push(i);
         }
-    
+        
         for (int num : nums) {
             while (!stack.empty() && num > nums[stack.peek()]) {
                 ints[stack.peek()] = num;
